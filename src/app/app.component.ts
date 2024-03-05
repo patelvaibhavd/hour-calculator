@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hour-calculator';
+  isCollapsed: boolean;
+
+  constructor() {
+    this.isCollapsed = true;
+  }
+
+  ngOnInit() {
+  }
+
+  collapseNavMenu() {
+    if (!this.isCollapsed) {
+      this.isCollapsed = !this.isCollapsed;
+    }
+  }
 }

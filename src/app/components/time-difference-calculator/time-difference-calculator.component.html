@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 class="mt-5 mb-4">Time Difference Calculator</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="start-time">Start Time:</label>
+                <input type="time" class="form-control" id="start-time" [(ngModel)]="startTime">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="end-time">End Time:</label>
+                <input type="time" class="form-control" id="end-time" [(ngModel)]="endTime">
+            </div>
+        </div>
+    </div>
+    <div class="row mt-10">
+        <div class="col-md-12">
+            <button class="btn btn-primary" (click)="calculateDifference()">Calculate Total</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p id="result" class="mt-3">{{ result }}</p>
+        </div>
+    </div>
+</div>
