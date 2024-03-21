@@ -1,1 +1,53 @@
-<p>time-calculator works!</p>
+<div class="container">
+    <h1 class="mt-5 mb-4">Time Calculator (Hour Minute Calculator)
+    </h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p class="font-weight-bold">Hours - {{ hours }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p class="font-weight-bold">Minutes - {{ minutes }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p class="font-weight-bold">Seconds - {{ seconds }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="display-5">Total - {{ time }}</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <table class="table">
+                            <tbody>
+                                <tr *ngFor="let row of rows; let i = index">
+                                    <td [width]="'10%'" (click)="changeSign(i)" class="sign"
+                                        [ngClass]="{'positive': row.sign === '+', 'negative': row.sign === '-'}"><span
+                                            class="sign-td">{{ row.sign }}</span></td>
+                                    <td [width]="'50%'"><input class="form-control" maxlength="20"
+                                            [(ngModel)]="row.time" (keyup)="calculateTime(i)"></td>
+                                    <td [width]="'10%'" (click)="deleteRow(i)" class="delete"><button
+                                            class="btn btn-danger">Close</button></td>
+                                    <td [width]="'30%'">&nbsp;{{ row.formattedTime }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-primary" (click)="addRow('+')">Add (+)</button>
+                        <button class="btn btn-primary" (click)="addRow('-')">Add (-)</button>
+                        <button class="btn btn-danger" (click)="reset()">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
